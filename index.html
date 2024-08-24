@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebTech Solutions - Web Development & IT Support Specialist</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Slab:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-color: #4a90e2;
@@ -14,30 +17,32 @@
             --heading-font: 'Roboto Slab', serif;
             --body-font: 'Poppins', sans-serif;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: var(--body-font);
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
         }
-        
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             font-family: var(--heading-font);
         }
-        
+
         .container {
             width: 80%;
             margin: 0 auto;
             overflow: hidden;
         }
-        
+
         /* Navigation */
         nav {
             background-color: var(--primary-color);
@@ -48,28 +53,28 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         nav ul {
             display: flex;
             list-style: none;
         }
-        
+
         nav ul li {
             margin-left: 1rem;
         }
-        
+
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 600;
         }
-        
+
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -80,54 +85,46 @@
             color: white;
             position: relative;
             overflow: hidden;
+            background-color: #333;
+            /* Fallback color */
         }
-        
-        .hero-parallax {
+
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(74, 144, 226, 0.7), rgba(243, 156, 18, 0.7)),
+                url('https://source.unsplash.com/random/1920x1080?technology') no-repeat center center/cover;
+            z-index: 1;
+            transform: translateZ(-1px) scale(2);
         }
-        
-        .hero-parallax-layer {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            will-change: transform;
-        }
-        
-        .hero-parallax-layer-1 {
-            background-image: url('https://source.unsplash.com/random/1920x1080?technology');
-            opacity: 0.3;
-        }
-        
-        .hero-parallax-layer-2 {
-            background-image: url('https://source.unsplash.com/random/1920x1080?code');
-            opacity: 0.2;
-        }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
         }
-        
+
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
             font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        
+
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
             font-weight: 300;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
-        
+
         .btn {
             display: inline-block;
             background: var(--secondary-color);
@@ -140,55 +137,55 @@
             transition: background-color 0.3s ease;
             font-weight: 600;
         }
-        
+
         .btn:hover {
             background-color: #e67e22;
         }
-        
+
         /* Sections */
         section {
             padding: 5rem 0;
         }
-        
+
         section h2 {
             text-align: center;
             margin-bottom: 3rem;
             font-size: 2.5rem;
             color: var(--primary-color);
         }
-        
+
         /* About Section */
         #about {
             background-color: white;
         }
-        
+
         .about-content {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-        
+
         .about-text {
             flex: 1;
             padding-right: 2rem;
         }
-        
+
         .about-image {
             flex: 1;
             text-align: center;
         }
-        
+
         /* Services Section */
         #services {
             background-color: var(--bg-color);
         }
-        
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
-        
+
         .service-card {
             background-color: white;
             padding: 2rem;
@@ -196,29 +193,29 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
-        
+
         .service-card:hover {
             transform: translateY(-10px);
         }
-        
+
         .service-icon {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
-        
+
         /* Expertise Section */
         #expertise {
             background-color: white;
         }
-        
+
         .expertise-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 1rem;
         }
-        
+
         .expertise-item {
             background-color: var(--primary-color);
             color: white;
@@ -227,28 +224,29 @@
             font-size: 0.9rem;
             font-weight: 600;
         }
-        
+
         /* Contact Section */
         #contact {
             background-color: var(--primary-color);
             color: white;
         }
-        
+
         form {
             display: grid;
             gap: 1rem;
             max-width: 500px;
             margin: 0 auto;
         }
-        
-        input, textarea {
+
+        input,
+        textarea {
             width: 100%;
             padding: 0.7rem;
             border: none;
             border-radius: 5px;
             font-family: var(--body-font);
         }
-        
+
         /* Footer */
         footer {
             background-color: #333;
@@ -256,36 +254,38 @@
             text-align: center;
             padding: 1rem 0;
         }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 width: 90%;
             }
-            
+
             nav ul {
                 display: none;
             }
-            
+
             .about-content {
                 flex-direction: column;
             }
-            
-            .about-text, .about-image {
+
+            .about-text,
+            .about-image {
                 padding: 0;
                 margin-bottom: 2rem;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero p {
                 font-size: 1.2rem;
             }
         }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="container">
@@ -299,11 +299,19 @@
         </div>
     </nav>
 
-    <header class="hero">
+    <!-- <header class="hero">
         <div class="hero-parallax">
             <div class="hero-parallax-layer hero-parallax-layer-1"></div>
             <div class="hero-parallax-layer hero-parallax-layer-2"></div>
         </div>
+        <div class="hero-content">
+            <h1>Web Development & IT Support Specialist</h1>
+            <p>Solusi Digital Terpercaya untuk Bisnis Anda</p>
+            <a href="#contact" class="btn">Hubungi Saya</a>
+        </div>
+    </header> -->
+
+    <header class="hero">
         <div class="hero-content">
             <h1>Web Development & IT Support Specialist</h1>
             <p>Solusi Digital Terpercaya untuk Bisnis Anda</p>
@@ -316,14 +324,18 @@
             <h2>Tentang Saya</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Saya adalah seorang ahli pengembangan web dan IT support yang berdedikasi untuk memberikan solusi digital terbaik bagi bisnis Anda. Dengan pengalaman luas dalam WordPress, WooCommerce, Laravel, dan berbagai teknologi lainnya, saya siap membantu Anda mewujudkan visi digital Anda.</p>
-                    <p>Fokus utama saya adalah memberikan layanan berkualitas tinggi dan solusi yang disesuaikan dengan kebutuhan unik setiap klien. Dengan kombinasi keahlian teknis dan pemahaman bisnis, saya dapat membantu Anda mencapai tujuan online Anda.</p>
+                    <p>Saya adalah seorang ahli pengembangan web dan IT support yang berdedikasi untuk memberikan solusi
+                        digital terbaik bagi bisnis Anda. Dengan pengalaman luas dalam WordPress, WooCommerce, Laravel,
+                        dan berbagai teknologi lainnya, saya siap membantu Anda mewujudkan visi digital Anda.</p>
+                    <p>Fokus utama saya adalah memberikan layanan berkualitas tinggi dan solusi yang disesuaikan dengan
+                        kebutuhan unik setiap klien. Dengan kombinasi keahlian teknis dan pemahaman bisnis, saya dapat
+                        membantu Anda mencapai tujuan online Anda.</p>
                 </div>
                 <div class="about-image">
                     <svg width="300" height="300" viewBox="0 0 300 300">
-                        <rect width="100%" height="100%" fill="#4a90e2"/>
-                        <circle cx="150" cy="120" r="70" fill="#f39c12"/>
-                        <rect x="80" y="200" width="140" height="80" fill="#f39c12"/>
+                        <rect width="100%" height="100%" fill="#4a90e2" />
+                        <circle cx="150" cy="120" r="70" fill="#f39c12" />
+                        <rect x="80" y="200" width="140" height="80" fill="#f39c12" />
                     </svg>
                 </div>
             </div>
@@ -337,17 +349,20 @@
                 <div class="service-card">
                     <div class="service-icon">&#128187;</div>
                     <h3>Pengembangan Web</h3>
-                    <p>Membuat website yang menarik dan fungsional menggunakan WordPress, WooCommerce, dan Laravel. Dari toko online hingga aplikasi web yang kompleks, saya dapat mewujudkannya untuk Anda.</p>
+                    <p>Membuat website yang menarik dan fungsional menggunakan WordPress, WooCommerce, dan Laravel. Dari
+                        toko online hingga aplikasi web yang kompleks, saya dapat mewujudkannya untuk Anda.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">&#128640;</div>
                     <h3>Perbaikan & Optimisasi Website</h3>
-                    <p>Memiliki masalah dengan website Anda? Saya dapat memperbaiki, mengoptimalkan, dan meningkatkan kinerja situs web Anda agar berjalan lebih cepat dan efisien.</p>
+                    <p>Memiliki masalah dengan website Anda? Saya dapat memperbaiki, mengoptimalkan, dan meningkatkan
+                        kinerja situs web Anda agar berjalan lebih cepat dan efisien.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">&#128295;</div>
                     <h3>IT Support</h3>
-                    <p>Menyediakan layanan IT support komprehensif, termasuk setup laptop baru, penyelesaian masalah teknis, dan optimalisasi kinerja perangkat Anda.</p>
+                    <p>Menyediakan layanan IT support komprehensif, termasuk setup laptop baru, penyelesaian masalah
+                        teknis, dan optimalisasi kinerja perangkat Anda.</p>
                 </div>
             </div>
         </div>
@@ -402,7 +417,7 @@
         });
 
         // Parallax effect for hero section
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const parallax = document.querySelector('.hero-parallax');
             let scrollPosition = window.pageYOffset;
             parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
@@ -422,4 +437,5 @@
         });
     </script>
 </body>
+
 </html>
