@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebTech Solutions - Web Development & IT Support Specialist</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f39c12;
+            --text-color: #333;
+            --bg-color: #f4f4f4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            background-color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #4a90e2, #f39c12);
+            opacity: 0.7;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #e67e22;
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        /* About Section */
+        #about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .about-text {
+            flex: 1;
+            padding-right: 2rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        /* Services Section */
+        #services {
+            background-color: var(--bg-color);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* Expertise Section */
+        #expertise {
+            background-color: white;
+        }
+        
+        .expertise-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .expertise-item {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        form {
+            display: grid;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+            
+            nav ul {
+                display: none;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text, .about-image {
+                padding: 0;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <h1>WebTech Solutions</h1>
+            <ul>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#expertise">Keahlian</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Web Development & IT Support Specialist</h1>
+            <p>Solusi Digital Terpercaya untuk Bisnis Anda</p>
+            <a href="#contact" class="btn">Hubungi Saya</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>Tentang Saya</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Saya adalah seorang ahli pengembangan web dan IT support yang berdedikasi untuk memberikan solusi digital terbaik bagi bisnis Anda. Dengan pengalaman luas dalam WordPress, WooCommerce, Laravel, dan berbagai teknologi lainnya, saya siap membantu Anda mewujudkan visi digital Anda.</p>
+                    <p>Fokus utama saya adalah memberikan layanan berkualitas tinggi dan solusi yang disesuaikan dengan kebutuhan unik setiap klien. Dengan kombinasi keahlian teknis dan pemahaman bisnis, saya dapat membantu Anda mencapai tujuan online Anda.</p>
+                </div>
+                <div class="about-image">
+                    <svg width="300" height="300" viewBox="0 0 300 300">
+                        <rect width="100%" height="100%" fill="#4a90e2"/>
+                        <circle cx="150" cy="120" r="70" fill="#f39c12"/>
+                        <rect x="80" y="200" width="140" height="80" fill="#f39c12"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Layanan</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#128187;</div>
+                    <h3>Pengembangan Web</h3>
+                    <p>Membuat website yang menarik dan fungsional menggunakan WordPress, WooCommerce, dan Laravel. Dari toko online hingga aplikasi web yang kompleks, saya dapat mewujudkannya untuk Anda.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128640;</div>
+                    <h3>Perbaikan & Optimisasi Website</h3>
+                    <p>Memiliki masalah dengan website Anda? Saya dapat memperbaiki, mengoptimalkan, dan meningkatkan kinerja situs web Anda agar berjalan lebih cepat dan efisien.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128295;</div>
+                    <h3>IT Support</h3>
+                    <p>Menyediakan layanan IT support komprehensif, termasuk setup laptop baru, penyelesaian masalah teknis, dan optimalisasi kinerja perangkat Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise">
+        <div class="container">
+            <h2>Keahlian</h2>
+            <div class="expertise-grid">
+                <span class="expertise-item">WordPress</span>
+                <span class="expertise-item">WooCommerce</span>
+                <span class="expertise-item">Laravel</span>
+                <span class="expertise-item">Elementor</span>
+                <span class="expertise-item">PHP</span>
+                <span class="expertise-item">MySQL</span>
+                <span class="expertise-item">JavaScript</span>
+                <span class="expertise-item">Figma</span>
+                <span class="expertise-item">Hosting</span>
+                <span class="expertise-item">Domain</span>
+                <span class="expertise-item">IT Support</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Hubungi Saya</h2>
+            <form>
+                <input type="text" placeholder="Nama Anda" required>
+                <input type="email" placeholder="Email Anda" required>
+                <textarea rows="5" placeholder="Pesan Anda" required></textarea>
+                <button type="submit" class="btn">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 WebTech Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple animation on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight * 0.75) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
