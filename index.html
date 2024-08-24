@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebTech Solutions - Web Development & IT Support Specialist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #4a90e2;
             --secondary-color: #f39c12;
             --text-color: #333;
             --bg-color: #f4f4f4;
+            --heading-font: 'Roboto Slab', serif;
+            --body-font: 'Poppins', sans-serif;
         }
         
         * {
@@ -19,10 +22,14 @@
         }
         
         body {
-            font-family: Arial, sans-serif;
+            font-family: var(--body-font);
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
+        }
+        
+        h1, h2, h3 {
+            font-family: var(--heading-font);
         }
         
         .container {
@@ -60,6 +67,7 @@
         nav a {
             color: white;
             text-decoration: none;
+            font-weight: 600;
         }
         
         /* Hero Section */
@@ -70,21 +78,35 @@
             justify-content: center;
             text-align: center;
             color: white;
-            background-color: #333;
             position: relative;
             overflow: hidden;
         }
         
-        .hero::before {
-            content: '';
+        .hero-parallax {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #4a90e2, #f39c12);
-            opacity: 0.7;
-            z-index: 1;
+        }
+        
+        .hero-parallax-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+        }
+        
+        .hero-parallax-layer-1 {
+            background-image: url('https://source.unsplash.com/random/1920x1080?technology');
+            opacity: 0.3;
+        }
+        
+        .hero-parallax-layer-2 {
+            background-image: url('https://source.unsplash.com/random/1920x1080?code');
+            opacity: 0.2;
         }
         
         .hero-content {
@@ -93,13 +115,17 @@
         }
         
         .hero h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
         
         .hero p {
             font-size: 1.5rem;
             margin-bottom: 2rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
         
         .btn {
@@ -112,6 +138,7 @@
             text-decoration: none;
             font-size: 1rem;
             transition: background-color 0.3s ease;
+            font-weight: 600;
         }
         
         .btn:hover {
@@ -126,6 +153,8 @@
         section h2 {
             text-align: center;
             margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--primary-color);
         }
         
         /* About Section */
@@ -196,6 +225,7 @@
             padding: 0.5rem 1rem;
             border-radius: 20px;
             font-size: 0.9rem;
+            font-weight: 600;
         }
         
         /* Contact Section */
@@ -216,6 +246,7 @@
             padding: 0.7rem;
             border: none;
             border-radius: 5px;
+            font-family: var(--body-font);
         }
         
         /* Footer */
@@ -244,6 +275,14 @@
                 padding: 0;
                 margin-bottom: 2rem;
             }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -261,6 +300,10 @@
     </nav>
 
     <header class="hero">
+        <div class="hero-parallax">
+            <div class="hero-parallax-layer hero-parallax-layer-1"></div>
+            <div class="hero-parallax-layer hero-parallax-layer-2"></div>
+        </div>
         <div class="hero-content">
             <h1>Web Development & IT Support Specialist</h1>
             <p>Solusi Digital Terpercaya untuk Bisnis Anda</p>
@@ -356,6 +399,13 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', function() {
+            const parallax = document.querySelector('.hero-parallax');
+            let scrollPosition = window.pageYOffset;
+            parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
         });
 
         // Simple animation on scroll
